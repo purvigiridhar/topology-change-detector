@@ -55,14 +55,23 @@ sudo killall pox.py
 
 ```bash
 cd ~/pox
-./pox.py log.level --ERROR forwarding.l2_learning topology_detector
+./pox.py log.level --ERROR forwarding.l2_learning topology_detector 
 ```
+forwarding.l2_learning
+This is based on MAC learning
+What it does:
+   1.Learns MAC → port mapping
+   2.Stores it
+   3.Installs flow rules
 
 ### Step 3: Start Mininet (in a New Terminal)
 
 ```bash
 sudo mn --controller=remote,ip=127.0.0.1,port=6633 --topo tree,depth=2,fanout=2
 ```
+--controller=remote : tinforms mininet to not use the default controller, and to use the POX controller
+ip=127.0.0.1 -> controller IP adddress (change according to your localhost machine)
+--topo tree,depth=2,fanout=2 -> defines the network topology
 
 ### Step 4: Flow Tables
 
