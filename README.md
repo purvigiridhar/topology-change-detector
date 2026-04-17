@@ -64,6 +64,11 @@ cd ~/pox
 sudo mn --controller=remote,ip=127.0.0.1,port=6633 --topo tree,depth=2,fanout=2
 ```
 
+### Step 4: Flow Tables
+
+```bash
+sudo ovs-ofctl dump-flows s1
+```
 ---
 
 ## 🧪 Test Scenarios
