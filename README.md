@@ -98,15 +98,8 @@ your-repo/
 ├── topology_log.txt             # Auto-generated event log
 ├── docs/
 │   └── project_report.docx      # Full project report
-└── screenshots/
-    ├── 01_controller_startup.png
-    ├── 02_switches_connected.png
-    ├── 03_pingall_normal.png
-    ├── 04_link_down.png
-    ├── 05_pingall_failure.png
-    ├── 06_link_recovery.png
-    ├── 07_topology_log.png
-    └── 08_net_command.png
+└── screenshots
+
 ```
 
 ---
@@ -146,8 +139,10 @@ cd ~/pox
 ### Step 4 — Start Mininet (New Terminal)
 
 ```bash
-sudo mn --controller=remote,ip=127.0.0.1,port=6633 --topo tree,depth=2,fanout=2
+sudo mn --controller=remote,ip=<device_ip_address, --topo tree,depth=2,fanout=2 
 ```
+Topology can be changed to linear, star etc.
+fanout = 2 //number of children per node
 
 > Creates a tree topology with 3 switches and 4 hosts, connecting to POX on port 6633.
 
@@ -302,22 +297,7 @@ mininet> pingall
 ---
 
 ## 📸 Screenshots
-
-### Controller Output — Switches Connected
-![Switches Connected](screenshots/01_controller_startup.png)
-
-### Normal Operation — 0% Packet Loss
-![Normal pingall](screenshots/03_pingall_normal.png)
-
-### Failure Scenario — 66% Packet Loss
-![Link failure](screenshots/04_link_down.png)
-
-### Recovery — Full Connectivity Restored
-![Recovery](screenshots/06_link_recovery.png)
-
-### Topology Log File
-![Log file](screenshots/07_topology_log.png)
-
+Screenshots are present in the screenshots folder
 ---
 
 ## ⚠️ Common Issues & Fixes
@@ -331,12 +311,6 @@ mininet> pingall
 | Mininet fails to start | Previous session not cleaned | Run `sudo mn -c` before starting |
 
 ---
-
-## 📄 Project Report
-
-The full project report (with architecture diagrams, test results, and log analysis) is available here:
-
-[📥 Download Project Report](docs/project_report.docx)
 
 ---
 
